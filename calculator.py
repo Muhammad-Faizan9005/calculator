@@ -49,6 +49,39 @@ def log(x1):
         return "Error! Logarithm of non-positive numbers is undefined."
     return math.log(x1)
 
+# New Functions
+def sin(x1):
+    return math.sin(math.radians(x1))
+
+def cos(x1):
+    return math.cos(math.radians(x1))
+
+def tan(x1):
+    return math.tan(math.radians(x1))
+
+def arcsin(x1):
+    if -1 <= x1 <= 1:
+        return math.degrees(math.asin(x1))
+    return "Error! Input must be in range [-1,1]."
+
+def arccos(x1):
+    if -1 <= x1 <= 1:
+        return math.degrees(math.acos(x1))
+    return "Error! Input must be in range [-1,1]."
+
+def arctan(x1):
+    return math.degrees(math.atan(x1))
+
+def exponential(x1):
+    return math.exp(x1)
+
+def absolute(x1):
+    return abs(x1)
+
+def round_number(x1, x2):
+    return round(x1, int(x2))
+
+# Display menu
 print("\nWelcome to Faizan Calculator! 🔢")
 print("\nAvailable operations:")
 print("1. addition")
@@ -62,16 +95,29 @@ print("8. square_root")
 print("9. cube_root")
 print("10. percentage")
 print("11. factorial")
-print("12. log\n")
+print("12. log")
+print("13. sin")
+print("14. cos")
+print("15. tan")
+print("16. arcsin")
+print("17. arccos")
+print("18. arctan")
+print("19. exponential")
+print("20. absolute")
+print("21. round_number\n")
 
 # User input
 function_use = input("Which function do you want to use? ").lower()
 
 try:
     # Functions that require only one number
-    if function_use in ["square_root", "cube_root", "factorial", "log"]:
+    if function_use in ["square_root", "cube_root", "factorial", "log", "sin", "cos", "tan", "arcsin", "arccos", "arctan", "exponential", "absolute"]:
         x1 = float(input("Enter a number: "))
         result = eval(f"{function_use}(x1)")
+    elif function_use == "round_number":
+        x1 = float(input("Enter number to round: "))
+        x2 = int(input("Enter decimal places: "))
+        result = round_number(x1, x2)
     else:
         x1 = float(input("Enter first number: "))
         x2 = float(input("Enter second number: "))
